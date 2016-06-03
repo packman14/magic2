@@ -19,6 +19,7 @@ import javax.persistence.ManyToOne;
  *
  * @author tom
  */
+//coucou
 @Entity
 public class Film implements Serializable {
 
