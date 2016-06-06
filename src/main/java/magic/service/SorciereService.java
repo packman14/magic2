@@ -5,6 +5,7 @@
  */
 package magic.service;
 
+import magic.DAO.SorciereCRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import magic.entity.Sorciere;
@@ -17,7 +18,13 @@ import magic.entity.Sorciere;
 public class SorciereService {
     
     @Autowired
+    private ConfigService cs;
+    
+    @Autowired
     private IngredientService is;
+    
+    @Autowired
+    private SorciereCRUDService scs;
     
     public void initialiserRessources(Long sorciereID)
     {
@@ -25,5 +32,14 @@ public class SorciereService {
         {
             is.ajouterIngredientAleatoire(sorciereID);
         }
+    }
+    
+    public void initialiserSorciere(Sorciere sorciere, int numSorciere)
+    {
+        sorciere.setSkin(cs.urlCartesSorcieres().get(numSorciere));
+        
+        scs.save(sorciere);
+        
+        initialiserRessources(sorciere.getId());
     }
 }

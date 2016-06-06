@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import magic.entity.Sorciere;
 import magic.service.ConfigService;
+import magic.service.SorciereService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -27,6 +28,9 @@ public class JeuController {
     @Autowired
     private ConfigService cs;
     
+    @Autowired
+    private SorciereService ss;
+    
     @RequestMapping(value = "/accueil", method = RequestMethod.GET)
     public String logGET(Model model) {
 
@@ -36,7 +40,7 @@ public class JeuController {
     @RequestMapping(value = "/accueil", method = RequestMethod.POST)
     public String logPOST(@ModelAttribute(value = "sorciereCo") Sorciere so, HttpSession session)
     {
-        session.setAttribute("sorciereCo", session);
+        session.setAttribute("sorciereCo", so);
         return "redirect:/choix";
     }
     
@@ -51,6 +55,9 @@ public class JeuController {
     @RequestMapping(value = "/choix/{numSkin}", method = RequestMethod.GET)
     public String choixPost(@PathVariable("numSkin") int numSorciere, HttpSession session)
     {
+        Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
+        ss.initialiserSorciere(sorciere, numSorciere);
+        
         
         return "redirect:/plateau";
     }
