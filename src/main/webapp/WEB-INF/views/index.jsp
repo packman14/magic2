@@ -3,18 +3,36 @@
     Created on : 3 juin 2016, 11:48:24
     Author     : ajc
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!--        indique le nom de la feuille de style css utilisée-->
+<link href="CSS/style.css" rel="stylesheet" type="text/css"/>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="JS/jquery-2.2.4.min.js" type="text/javascript"></script>
-        <script src="JS/monJavascript.js" type="text/javascript"></script>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <div id="ressource">coucou</div>
-        <div id ="plateau">Plateau</div>
+    <div class="head">
+        <c:import url="_HEAD.jsp"/>
+    </div>
+</head>
+<body>
+    <div class="title">
+        <c:import url="_TITLE.jsp"/>
+    </div>
+    <div class="menu">
+        <c:import url="_MENU.jsp"/>
+    </div>
+    <div class="contenu">
+        <c:set var="maRoute"><c:url value="/accueil"/></c:set>
+                <form:form modelAttribute="util" method="post" action="${maRoute}">
+                    <label>Pseudo</label>
+                    <input type="text" name="pseudo"/>
+    </div>
+    <div class="pied">
+        <c:import url="_PIED.jsp"/>
+    </div>
+<!--        <div id="ressource">coucou</div>
+        <div id ="plateau">Plateau</div>-->
     </body>
 </html>

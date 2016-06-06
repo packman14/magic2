@@ -5,12 +5,15 @@
  */
 package streaming.controller;
 
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import streaming.entity.Sorciere;
 
 /**
  *
@@ -19,10 +22,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class JeuController {
 
-    @RequestMapping(value = "/homepage", method = RequestMethod.GET)
-    public String home() {
+    @RequestMapping(value = "/connexion", method = RequestMethod.GET)
+    public String logGET(Model model) {
 
-        return "index";
+        model.addAttribute("sorciereCo", new Sorciere());
+        return "accueil";
+    }
+    @RequestMapping(value = "/accueil", method = RequestMethod.POST)
+    public String logPOST(@ModelAttribute(value = "sorciereCo") Sorciere so, HttpSession session)
+    {
+        session.setAttribute("sorciereCo", session);
+        return "redirect:/plateau";
     }
 
     @RequestMapping(value = "/plateau", method = RequestMethod.GET)
