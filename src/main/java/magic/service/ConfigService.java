@@ -22,7 +22,7 @@ public class ConfigService {
         
         for(int i = 1; i<= 8; ++i)
         {
-            cartes.add("../IMG/sorciere" + i + ".jpg");
+            cartes.add("IMG/sorciere" + i + ".jpg");
         }
         
         return cartes;
