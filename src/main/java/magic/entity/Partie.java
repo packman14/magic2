@@ -33,6 +33,8 @@ public class Partie implements Serializable {
     
     private int nbJoueurs;
     
+    private Boolean partieEnCours;
+    
     @OneToMany (mappedBy = "partieEnCours")
     @JoinColumn(name = "partie_id")
     private List<Sorciere> sorcieresEnJeu= new ArrayList<>();
@@ -68,6 +70,20 @@ public class Partie implements Serializable {
     public void setSorcieresEnJeu(List<Sorciere> sorcieresEnJeu) {
         this.sorcieresEnJeu = sorcieresEnJeu;
     }
+    
+    public void addSorciereEnJeu(Sorciere nouvSorciere)
+    {
+        this.sorcieresEnJeu.add(nouvSorciere);
+    }
+
+    public Boolean getPartieEnCours() {
+        return partieEnCours;
+    }
+
+    public void setPartieEnCours(Boolean partieEnCours) {
+        this.partieEnCours = partieEnCours;
+    }
+    
 
     
     @Override

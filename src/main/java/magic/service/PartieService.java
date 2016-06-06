@@ -5,10 +5,13 @@
  */
 package magic.service;
 
+import java.util.List;
 import magic.DAO.PartieCRUDService;
+import magic.DAO.SorciereCRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import magic.entity.Partie;
+import magic.entity.Sorciere;
 
 /**
  *
@@ -20,6 +23,9 @@ public class PartieService
 
     @Autowired
     private PartieCRUDService pcs;
+    
+    @Autowired
+    private SorciereCRUDService scs;
     
     public void joueurSuivant(Long partieID)
     {
@@ -34,5 +40,38 @@ public class PartieService
             partieActuelle.setNumeroSorciere(1);
         }
         pcs.save(partieActuelle);
+    }
+    
+    public void initPartie(Long sorciereID)
+    {
+        List<Partie> partiesEnAttente= pcs.findAllByPartieEnCours(Boolean.FALSE);
+        if(partiesEnAttente.isEmpty())
+        {
+            Partie partie = new Partie();
+            Sorciere sorciere = scs.findOne(sorciereID);
+            
+            partie.addSorciereEnJeu(sorciere);
+            partie.setPartieEnCours(Boolean.FALSE);
+            
+            sorciere.setPartieEnCours(partie);
+            
+            scs.save(sorciere);
+            pcs.save(partie);
+            
+        }
+        else
+        {
+            Partie partie = partiesEnAttente.get(0);
+            Sorciere sorciere = scs.findOne(sorciereID);
+            
+            partie.addSorciereEnJeu(sorciere);
+            partie.setPartieEnCours(Boolean.FALSE);
+            
+            sorciere.setPartieEnCours(partie);
+            
+            scs.save(sorciere);
+            pcs.save(partie);
+        }
+        
     }
 }

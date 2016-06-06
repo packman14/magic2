@@ -5,6 +5,7 @@
  */
 package magic.DAO;
 
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import magic.entity.Partie;
 
@@ -13,5 +14,5 @@ import magic.entity.Partie;
  * @author ajc
  */
 public interface PartieCRUDService extends CrudRepository<Partie, Long>{
-    
+    public List<Partie> findAllByPartieEnCours(Boolean partieEnCours);
 }
