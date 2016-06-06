@@ -20,8 +20,14 @@ public class SortService {
     private SortCRUDService scs;
 
     public void lancerSort(Ingredient ingredient1, Ingredient ingredient2, Long sorciereIDSource, Long sorciereIDCible) throws RuntimeException {
+        
+        //récupérer tous les sorts
         List<Sort> sorts = scs.findAll();
+        
+        //pour tous les sorts existant
         for (Sort s : sorts) {
+            
+            //ingrédients correspondant à un sort
             if (s.getRecette().contains(ingredient1.getTypeIngredient()) 
                     && s.getRecette().contains(ingredient2.getTypeIngredient())) {
                 effetsSort(s.getTypeSort(), sorciereIDSource, sorciereIDCible);
@@ -35,7 +41,7 @@ public class SortService {
     public void effetsSort(Sort.TypeSort typeSort, Long sorciereIDSource, Long sorciereIDCible) {
         switch (typeSort) {
             case DIVINATION: {
-
+                
             }
             case FILTREAMOUR: {
 
@@ -47,7 +53,7 @@ public class SortService {
 
             }
             case SOMMEILPROFOND: {
-
+                
             }
         }
     }

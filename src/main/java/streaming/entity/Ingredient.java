@@ -38,7 +38,7 @@ public class Ingredient implements Serializable {
         LAPIS
     }
     
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private TypeIngredient typeIngredient;
     
     private String skin;
