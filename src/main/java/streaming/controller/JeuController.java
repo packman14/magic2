@@ -22,7 +22,7 @@ import streaming.entity.Sorciere;
 @Controller
 public class JeuController {
 
-    @RequestMapping(value = "/connexion", method = RequestMethod.GET)
+    @RequestMapping(value = "/accueil", method = RequestMethod.GET)
     public String logGET(Model model) {
 
         model.addAttribute("sorciereCo", new Sorciere());
