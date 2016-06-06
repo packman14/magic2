@@ -24,12 +24,10 @@
     <div class="contenu">
         <!--        affichage des skins avec bouton de sélection-->
         <c:forEach items="${mesSkins}" var="monSkin" varStatus="ntm">
-            <div>
                 <a  href="<c:url value="/choix/"/>${ntm.index}">
                     <img src="${monSkin}"/>
                     <input type="submit" value="Selectionner">
                 </a>
-            </div>
         </c:forEach>
     </div>
     <div class="pied">
