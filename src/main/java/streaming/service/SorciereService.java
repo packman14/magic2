@@ -17,9 +17,6 @@ import streaming.entity.Sorciere;
 public class SorciereService {
     
     @Autowired
-    private SorciereCRUDService socs;
-    
-    @Autowired
     private IngredientService is;
     
     public void initialiserRessources(Long sorciereID)
