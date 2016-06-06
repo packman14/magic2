@@ -7,6 +7,7 @@ package streaming.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import streaming.entity.Ingredient;
 import streaming.entity.Sort;
 
@@ -14,6 +15,7 @@ import streaming.entity.Sort;
  *
  * @author moi
  */
+@Service
 public class SortService {
 
     @Autowired

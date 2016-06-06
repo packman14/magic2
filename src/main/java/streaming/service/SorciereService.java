@@ -5,7 +5,9 @@
  */
 package streaming.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import streaming.entity.Sorciere;
 
 /**
  *
@@ -14,4 +16,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class SorciereService {
     
+    @Autowired
+    private SorciereCRUDService socs;
+    
+    @Autowired
+    private IngredientService is;
+    
+    public void initialiserRessources(Long sorciereID)
+    {
+        for(int i = 1; i<=7; ++i)
+        {
+            is.ajouterIngredientAleatoire(sorciereID);
+        }
+    }
 }

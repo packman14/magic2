@@ -62,6 +62,11 @@ public class Sorciere implements Serializable {
         this.ingredients = ingredients;
     }
     
+    public void addIngredient(Ingredient ingredient)
+    {
+        this.ingredients.add(ingredient);
+    }
+    
     public Long getId() {
         return id;
     }

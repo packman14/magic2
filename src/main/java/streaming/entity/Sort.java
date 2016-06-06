@@ -44,8 +44,7 @@ public class Sort implements Serializable {
     private TypeSort typeSort;
     
     private List<Ingredient.TypeIngredient> recette = new ArrayList<>();
-    
-    
+        
     
     private Long getId() {
         return id;

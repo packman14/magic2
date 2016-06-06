@@ -8,13 +8,13 @@ package streaming.service;
 import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
-import streaming.entity.Partie;
+import streaming.entity.Ingredient;
 
 /**
  *
  * @author ajc
  */
 @Service
-public interface PartieCRUDService extends CrudRepository<Partie, Long>{
+public interface IngredientCRUDService extends CrudRepository<Ingredient, Long>{
     
 }
