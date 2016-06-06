@@ -3,71 +3,50 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package streaming.entity;
+package magic.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  *
  * @author ajc
  */
 @Entity
-public class Sorciere implements Serializable {
+public class Sort implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-    private String pseudo;
-    
-    private int numero;
-    
-    private String skin;
-    
-    @OneToMany (mappedBy = "sorciere")
-    @JoinColumn(name = "sorciere_id")
-    private List<Ingredient> ingredients = new ArrayList<>();
 
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public String getSkin() {
-        return skin;
-    }
-
-    public void setSkin(String skin) {
-        this.skin = skin;
-    }
-
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-    
-    public void addIngredient(Ingredient ingredient)
+    public enum TypeSort
     {
-        this.ingredients.add(ingredient);
+        INVISIBILITE,
+        FILTREAMOUR,
+        HYPNOSE,
+        DIVINATION,
+        SOMMEILPROFOND
     }
     
-    public Long getId() {
+    
+    
+    @Enumerated(EnumType.STRING)
+    private TypeSort typeSort;
+    
+    private List<Ingredient.TypeIngredient> recette = new ArrayList<>();
+        
+    
+    private Long getId() {
         return id;
     }
 
@@ -75,6 +54,24 @@ public class Sorciere implements Serializable {
         this.id = id;
     }
 
+    public List<Ingredient.TypeIngredient> getRecette() {
+        return recette;
+    }
+
+    public void setRecette(List<Ingredient.TypeIngredient> recette) {
+        this.recette = recette;
+    }
+
+    public TypeSort getTypeSort() {
+        return typeSort;
+    }
+
+    public void setTypeSort(TypeSort typeSort) {
+        this.typeSort = typeSort;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -85,10 +82,10 @@ public class Sorciere implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Sorciere)) {
+        if (!(object instanceof Sort)) {
             return false;
         }
-        Sorciere other = (Sorciere) object;
+        Sort other = (Sort) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -97,7 +94,7 @@ public class Sorciere implements Serializable {
 
     @Override
     public String toString() {
-        return "streaming.entity.Sorciere[ id=" + id + " ]";
+        return "streaming.entity.Sort[ id=" + id + " ]";
     }
-    
+
 }

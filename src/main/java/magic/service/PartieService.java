@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package streaming.service;
+package magic.service;
 
-import DAO.PartieCRUDService;
+import magic.DAO.PartieCRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import streaming.entity.Partie;
+import magic.entity.Partie;
 
 /**
  *

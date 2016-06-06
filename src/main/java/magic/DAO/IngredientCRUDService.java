@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package magic.DAO;
 
 import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
-import streaming.entity.Sorciere;
+import magic.entity.Ingredient;
 
 /**
  *
  * @author ajc
  */
 @Service
-public interface SorciereCRUDService extends CrudRepository<Sorciere, Long>{
+public interface IngredientCRUDService extends CrudRepository<Ingredient, Long>{
     
 }

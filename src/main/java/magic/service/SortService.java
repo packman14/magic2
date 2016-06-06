@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package streaming.service;
+package magic.service;
 
-import DAO.SortCRUDService;
+import magic.DAO.SortCRUDService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import streaming.entity.Ingredient;
-import streaming.entity.Sort;
+import magic.entity.Ingredient;
+import magic.entity.Sort;
 
 /**
  *

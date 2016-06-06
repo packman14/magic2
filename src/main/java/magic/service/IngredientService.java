@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package streaming.service;
+package magic.service;
 
-import DAO.SorciereCRUDService;
-import DAO.IngredientCRUDService;
+import magic.DAO.SorciereCRUDService;
+import magic.DAO.IngredientCRUDService;
 import java.util.concurrent.ThreadLocalRandom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import streaming.entity.Ingredient;
-import streaming.entity.Sorciere;
+import magic.entity.Ingredient;
+import magic.entity.Sorciere;
 
 /**
  *
