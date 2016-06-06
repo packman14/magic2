@@ -73,9 +73,10 @@ public class JeuController {
 
     
     @RequestMapping(value = "/attente", method = RequestMethod.GET)
-    public String ajaxAttente(Model model) {
+    public String ajaxAttente(Model model, HttpSession session) {
         
-        
+        Sorciere sorciereCo = (Sorciere) session.getAttribute("sorciereCo");
+        model.addAttribute("partieEnCours", ps.listeAutresSorcieres(sorciereCo.getId()));
         return "attente";
     }
 

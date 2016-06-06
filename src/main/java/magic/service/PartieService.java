@@ -74,4 +74,18 @@ public class PartieService
         }
         
     }
+    
+    
+    public List<Sorciere> listeSorcieresDeLaPartie(Long partieID)
+    {
+        return pcs.findOne(partieID).getSorcieresEnJeu();
+    }
+    
+    public List<Sorciere> listeAutresSorcieres(Long sorciereID)
+    {
+        Sorciere sorciere = scs.findOne(sorciereID);
+        List<Sorciere> sorcieres = sorciere.getPartieEnCours().getSorcieresEnJeu();
+        sorcieres.remove(sorciere);
+        return sorcieres;
+    }
 }
