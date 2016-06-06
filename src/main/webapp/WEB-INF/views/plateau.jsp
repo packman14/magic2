@@ -21,10 +21,13 @@
         <c:import url="_MENU.jsp"/>
     </div>
     <div class="contenu">
-        <div id="joueursCo"></div>
-        <c:when test="${sorciereCo==null}">
-            <input type="sumbit" value="Commencer la partie"/>
+        <c:when test="${partieEnCours==null}">
+            En attente de joueurs
         </c:when>
+        <c:otherwise>
+            <div id="joueursCo"/>
+            <input type="sumbit" value="Commencer la partie"/>
+        </c:otherwise>
     </div>
     <div class="pied">
         <c:import url="_PIED.jsp"/>

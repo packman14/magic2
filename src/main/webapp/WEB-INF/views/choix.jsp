@@ -26,7 +26,6 @@
         <c:forEach items="${mesSkins}" var="monSkin" varStatus="ntm">
                 <a  href="<c:url value="/choix/"/>${ntm.index}">
                     <img src="${monSkin}"/>
-                    <input type="submit" value="Selectionner">
                 </a>
         </c:forEach>
     </div>
