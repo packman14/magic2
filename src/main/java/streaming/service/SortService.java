@@ -5,12 +5,23 @@
  */
 package streaming.service;
 
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import streaming.entity.Ingredient;
+import streaming.entity.Sort;
+
 /**
  *
  * @author ajc
  */
 public class SortService {
     
-    public void lancerSort(Ingredient ingredient1, )
+    @Autowired
+    private SortCRUDService scs;
+    
+    public void lancerSort(Ingredient ingredient1, Ingredient ingredient2, Long sorciereID)
+    {
+        List<Sort> sorts = scs.findAll();
+    }
     
 }

@@ -31,7 +31,7 @@ public class Sort implements Serializable {
     @JoinTable (name = "ingredients")
     private List<Ingredient> recette = new ArrayList<>();
 
-    public Long getId() {
+    private Long getId() {
         return id;
     }
 
