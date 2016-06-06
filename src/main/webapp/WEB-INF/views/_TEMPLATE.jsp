@@ -3,11 +3,6 @@
     Created on : 25 mai 2016, 15:51:42
     Author     : ajc
 --%>
-
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!--        indique le nom de la feuille de style css utilisée-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,4 +25,3 @@
     </div>
 </body>
 </html>
-

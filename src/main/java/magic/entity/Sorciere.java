@@ -6,6 +6,7 @@
 package magic.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
@@ -33,6 +34,16 @@ public class Sorciere implements Serializable {
     private int numero;
     
     private String skin;
+    
+    private Date dateCo;
+
+    public Date getDateCo() {
+        return dateCo;
+    }
+
+    public void setDateCo(Date dateCo) {
+        this.dateCo = dateCo;
+    }
     
     @OneToMany (mappedBy = "sorciere")
     @JoinColumn(name = "sorciere_id")

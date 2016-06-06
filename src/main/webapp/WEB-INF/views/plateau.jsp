@@ -21,7 +21,10 @@
         <c:import url="_MENU.jsp"/>
     </div>
     <div class="contenu">
-       
+        <div id="joueursCo"></div>
+        <c:when test="${sorciereCo==null}">
+            <input type="sumbit" value="Commencer la partie"/>
+        </c:when>
     </div>
     <div class="pied">
         <c:import url="_PIED.jsp"/>

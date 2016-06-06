@@ -5,12 +5,8 @@
  */
 function myFunction() 
 {
-    
     setInterval(function(){ 
-        $( "#recharger" ).load( "actualiser" ); 
-        $( "#score" ).load( "calculScore" ); 
+        $( "#joueursCo" ).load( "actualiser" ); 
     }, 200);
-    
 }
-
 $( myFunction );
