@@ -92,7 +92,7 @@ public class Partie implements Serializable {
 
     @Override
     public String toString() {
-        return "streaming.entity.Partie[ id=" + id + " ]";
+        return "magic.entity.Partie[ id=" + id + " ]";
     }
     
 }

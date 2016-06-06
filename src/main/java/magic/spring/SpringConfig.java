@@ -28,8 +28,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 //@SpringBootApplication
 //@EnableAutoConfiguration
-@ComponentScan(basePackages = "streaming") 
-@EnableJpaRepositories(basePackages = "streaming")
+@ComponentScan(basePackages = "magic") 
+@EnableJpaRepositories(basePackages = "magic")
 @EnableWebMvc
 public class SpringConfig extends WebMvcConfigurerAdapter{
 

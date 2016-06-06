@@ -94,7 +94,7 @@ public class Sort implements Serializable {
 
     @Override
     public String toString() {
-        return "streaming.entity.Sort[ id=" + id + " ]";
+        return "magic.entity.Sort[ id=" + id + " ]";
     }
 
 }

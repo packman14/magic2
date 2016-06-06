@@ -116,7 +116,7 @@ public class Sorciere implements Serializable {
 
     @Override
     public String toString() {
-        return "streaming.entity.Sorciere[ id=" + id + " ]";
+        return "magic.entity.Sorciere[ id=" + id + " ]";
     }
     
 }

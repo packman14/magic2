@@ -104,7 +104,7 @@ public class Ingredient implements Serializable {
 
     @Override
     public String toString() {
-        return "streaming.entity.Ingredient[ id=" + id + " ]";
+        return "magic.entity.Ingredient[ id=" + id + " ]";
     }
     
 }
