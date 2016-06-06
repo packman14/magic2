@@ -5,16 +5,13 @@
  */
 package magic.DAO;
 
-import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Service;
 import magic.entity.Ingredient;
 
 /**
  *
  * @author ajc
  */
-@Service
 public interface IngredientCRUDService extends CrudRepository<Ingredient, Long>{
     
 }
