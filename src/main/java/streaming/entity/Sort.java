@@ -43,10 +43,8 @@ public class Sort implements Serializable {
     @Enumerated(EnumType.STRING)
     private TypeSort typeSort;
     
-    @ManyToMany
-    @JoinTable (name = "ingredients")
     private List<Ingredient.TypeIngredient> recette = new ArrayList<>();
-
+    
     
     
     private Long getId() {

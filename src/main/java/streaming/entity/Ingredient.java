@@ -29,6 +29,7 @@ public class Ingredient implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+//    @Entity
     public enum TypeIngredient
     {
         BAVECRAPAUD,
@@ -39,15 +40,13 @@ public class Ingredient implements Serializable {
     }
     
     @Enumerated(EnumType.STRING)
-    private TypeIngredient typeIngredient;
+    private Ingredient.TypeIngredient typeIngredient;
     
     private String skin;
     
     @ManyToOne
     public Sorciere sorciere;
     
-    @ManyToMany (mappedBy = "sorts")
-    private List<Sort> sorts = new ArrayList<>();
 
     public Sorciere getSorciere() {
         return sorciere;
@@ -81,13 +80,6 @@ public class Ingredient implements Serializable {
         this.typeIngredient = typeIngredient;
     }
 
-    public List<Sort> getSorts() {
-        return sorts;
-    }
-
-    public void setSorts(List<Sort> sorts) {
-        this.sorts = sorts;
-    }
 
     
     @Override
