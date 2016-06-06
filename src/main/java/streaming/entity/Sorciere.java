@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 /**
@@ -29,6 +30,11 @@ public class Sorciere implements Serializable {
     private int numero;
     
     private String skin;
+    
+    @OneToMany (mappedBy = "sorciere")
+    @JoinColumn(name = "sorciere_id")
+    private List<Ingredient> ingredients = new ArrayList<>();
+
 
     public int getNumero() {
         return numero;
@@ -54,9 +60,6 @@ public class Sorciere implements Serializable {
         this.ingredients = ingredients;
     }
     
-    @OneToMany (mappedBy = "sorciere_id")
-    private List<Ingredient> ingredients = new ArrayList<>();
-
     public Long getId() {
         return id;
     }
