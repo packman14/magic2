@@ -22,6 +22,10 @@ public class SortService {
     public void lancerSort(Ingredient ingredient1, Ingredient ingredient2, Long sorciereID)
     {
         List<Sort> sorts = scs.findAll();
+        for(Sort s : sorts)
+        {
+            
+        }
     }
     
 }
