@@ -23,13 +23,16 @@
     </div>
     <div class="contenu">
         <!--        affichage des skins avec bouton de sélection-->
-        <c:forEach items="${mesSkins}" var="skin" varStatus="ntm">
-            <a onclick="getCategoryIndex(${ntm.index})" href="/choix/ntm/#">
-                <div>
-                    <c:import url="${monSkin}"/>
+        <c:forEach items="${mesSkins}" var="monSkin" varStatus="ntm">
+
+            <div>
+
+                <img src="../IMG/sorciere1.jpg" alt=""/>
+                <a  href="<c:url value="/choix/"/>${ntm.index}">
                     <input type="submit" value="Selectionner">
-                </div>
-            </a>
+                </a>
+            </div>
+
         </c:forEach>
     </div>
     <div class="pied">

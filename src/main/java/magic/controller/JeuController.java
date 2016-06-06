@@ -48,7 +48,7 @@ public class JeuController {
         return "choix";
     }
     
-    @RequestMapping(value = "/choix/{numSkin}", method = RequestMethod.POST)
+    @RequestMapping(value = "/choix/{numSkin}", method = RequestMethod.GET)
     public String choixPost(@PathVariable("numSkin") int numSorciere, HttpSession session)
     {
         
