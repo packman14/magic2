@@ -47,7 +47,7 @@ public class Ingredient implements Serializable {
     public Sorciere sorciere;
     
     @ManyToMany (mappedBy = "sorts")
-    private List<Sort> demiSorts = new ArrayList<>();
+    private List<Sort> sorts = new ArrayList<>();
 
     public Sorciere getSorciere() {
         return sorciere;
@@ -81,12 +81,12 @@ public class Ingredient implements Serializable {
         this.typeIngredient = typeIngredient;
     }
 
-    public List<Sort> getDemiSorts() {
-        return demiSorts;
+    public List<Sort> getSorts() {
+        return sorts;
     }
 
-    public void setDemiSorts(List<Sort> demiSorts) {
-        this.demiSorts = demiSorts;
+    public void setSorts(List<Sort> sorts) {
+        this.sorts = sorts;
     }
 
     
