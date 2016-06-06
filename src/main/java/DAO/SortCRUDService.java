@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package streaming.service;
+package DAO;
 
 import java.io.Serializable;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
-import streaming.entity.Ingredient;
+import streaming.entity.Sort;
 
 /**
  *
  * @author ajc
  */
 @Service
-public interface IngredientCRUDService extends CrudRepository<Ingredient, Long>{
+public interface SortCRUDService extends CrudRepository<Sort, Long>{
+    @Override
+    public List<Sort> findAll();
     
 }

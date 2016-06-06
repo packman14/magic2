@@ -5,6 +5,8 @@
  */
 package streaming.service;
 
+import DAO.SorciereCRUDService;
+import DAO.IngredientCRUDService;
 import java.util.concurrent.ThreadLocalRandom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
