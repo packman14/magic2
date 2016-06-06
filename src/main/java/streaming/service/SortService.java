@@ -12,7 +12,7 @@ import streaming.entity.Sort;
 
 /**
  *
- * @author ajc
+ * @author moi
  */
 public class SortService {
     
