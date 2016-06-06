@@ -37,12 +37,15 @@ public class JeuController {
         model.addAttribute("sorciereCo", new Sorciere());
         return "accueil";
     }
+    
+    
     @RequestMapping(value = "/accueil", method = RequestMethod.POST)
     public String logPOST(@ModelAttribute(value = "sorciereCo") Sorciere so, HttpSession session)
     {
         session.setAttribute("sorciereCo", so);
         return "redirect:/choix";
     }
+    
     
     @RequestMapping(value = "/choix", method = RequestMethod.GET)
     public String choixGet(Model model)
@@ -51,6 +54,7 @@ public class JeuController {
         
         return "choix";
     }
+    
     
     @RequestMapping(value = "/choix/{numSkin}", method = RequestMethod.GET)
     public String choixPost(@PathVariable("numSkin") int numSorciere, HttpSession session)
@@ -62,12 +66,14 @@ public class JeuController {
         return "redirect:/plateau";
     }
 
-    @RequestMapping(value = "/plateau", method = RequestMethod.GET)
-    public String ajaxPlateau() {
-
-        return "plateau";
+    
+    @RequestMapping(value = "/attente", method = RequestMethod.GET)
+    public String ajaxAttente(Model model) {
+        
+        return "attente";
     }
 
+    
     @RequestMapping(value = "/ressources/{idSorciere}", method = RequestMethod.GET)
     public String ajaxRessources(@PathVariable("idSorciere") Long idSorciere, Model model) 
     {
