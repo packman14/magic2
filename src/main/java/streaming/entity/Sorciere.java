@@ -27,6 +27,8 @@ public class Sorciere implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    private String pseudo;
+    
     private int numero;
     
     private String skin;

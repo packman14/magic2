@@ -29,14 +29,17 @@ public class Ingredient implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public enum type
+    public enum TypeIngredient
     {
-        baveCrapaud,
-        batwing,
-        sangVierge,
-        liCorne,
-        lapis
+        BAVECRAPAUD,
+        BATWING,
+        SANGVIERGE,
+        LICORNE,
+        LAPIS
     }
+    
+    @Enumerated
+    private TypeIngredient typeIngredient;
     
     private String skin;
     
@@ -70,6 +73,23 @@ public class Ingredient implements Serializable {
         this.id = id;
     }
 
+    public TypeIngredient getTypeIngredient() {
+        return typeIngredient;
+    }
+
+    public void setTypeIngredient(TypeIngredient typeIngredient) {
+        this.typeIngredient = typeIngredient;
+    }
+
+    public List<Sort> getDemiSorts() {
+        return demiSorts;
+    }
+
+    public void setDemiSorts(List<Sort> demiSorts) {
+        this.demiSorts = demiSorts;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

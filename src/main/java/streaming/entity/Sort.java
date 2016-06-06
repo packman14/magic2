@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,10 +29,26 @@ public class Sort implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    public enum TypeSort
+    {
+        INVISIBILITE,
+        FILTREAMOUR,
+        HYPNOSE,
+        DIVINATION,
+        SOMMEILPROFOND
+    }
+    
+    
+    
+    @Enumerated(EnumType.STRING)
+    private TypeSort typeSort;
+    
     @ManyToMany
     @JoinTable (name = "ingredients")
-    private List<Ingredient> recette = new ArrayList<>();
+    private List<Ingredient.TypeIngredient> recette = new ArrayList<>();
 
+    
+    
     private Long getId() {
         return id;
     }
@@ -39,14 +57,24 @@ public class Sort implements Serializable {
         this.id = id;
     }
 
-    public List<Ingredient> getRecette() {
+    public List<Ingredient.TypeIngredient> getRecette() {
         return recette;
     }
 
-    public void setRecette(List<Ingredient> recette) {
+    public void setRecette(List<Ingredient.TypeIngredient> recette) {
         this.recette = recette;
     }
 
+    public TypeSort getTypeSort() {
+        return typeSort;
+    }
+
+    public void setTypeSort(TypeSort typeSort) {
+        this.typeSort = typeSort;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
