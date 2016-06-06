@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -37,6 +38,8 @@ public class Sorciere implements Serializable {
     @JoinColumn(name = "sorciere_id")
     private List<Ingredient> ingredients = new ArrayList<>();
 
+    @ManyToOne
+    private Partie partieEnCours;
 
     public int getNumero() {
         return numero;
@@ -65,6 +68,22 @@ public class Sorciere implements Serializable {
     public void addIngredient(Ingredient ingredient)
     {
         this.ingredients.add(ingredient);
+    }
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    public Partie getPartieEnCours() {
+        return partieEnCours;
+    }
+
+    public void setPartieEnCours(Partie partieEnCours) {
+        this.partieEnCours = partieEnCours;
     }
     
     public Long getId() {

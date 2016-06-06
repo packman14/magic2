@@ -6,10 +6,16 @@
 package magic.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -26,6 +32,10 @@ public class Partie implements Serializable {
     private int numeroSorciere;
     
     private int nbJoueurs;
+    
+    @OneToMany (mappedBy = "partieEnCours")
+    @JoinColumn(name = "partie_id")
+    private List<Sorciere> sorcieresEnJeu= new ArrayList<>();
     
     public Long getId() {
         return id;
@@ -49,6 +59,14 @@ public class Partie implements Serializable {
 
     public void setNbJoueurs(int nbJoueurs) {
         this.nbJoueurs = nbJoueurs;
+    }
+
+    public List<Sorciere> getSorcieresEnJeu() {
+        return sorcieresEnJeu;
+    }
+
+    public void setSorcieresEnJeu(List<Sorciere> sorcieresEnJeu) {
+        this.sorcieresEnJeu = sorcieresEnJeu;
     }
 
     
