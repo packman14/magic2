@@ -5,6 +5,7 @@
     <class>streaming.entity.Sort</class>
     <class>streaming.entity.Sorciere</class>
     <class>streaming.entity.Ingredient</class>
+    <class>streaming.entity.Partie</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
