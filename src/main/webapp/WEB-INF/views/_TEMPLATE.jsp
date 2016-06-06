@@ -8,8 +8,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!--        indique le nom de la feuille de style css utilisée-->
-<link href="CSS/style.css" rel="stylesheet" type="text/css"/>
-
 <!DOCTYPE html>
 <html>
     <head>

@@ -4,9 +4,5 @@
     Author     : ajc
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
-<script src="js/jquery-2.2.4.js" type="text/javascript"></script>
-<!DOCTYPE html>
-<html>
-</html>

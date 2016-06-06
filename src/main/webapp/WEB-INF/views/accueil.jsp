@@ -5,9 +5,7 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!--        indique le nom de la feuille de style css utilisée-->
-<link href="CSS/style.css" rel="stylesheet" type="text/css"/>
-
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,9 +22,11 @@
     </div>
     <div class="contenu">
         <c:set var="maRoute"><c:url value="/accueil"/></c:set>
-                <form:form modelAttribute="util" method="post" action="${maRoute}">
+                <form:form modelAttribute="sorciereCo" method="post" action="${maRoute}">
                     <label>Pseudo</label>
                     <input type="text" name="pseudo"/>
+                    <input type="submit" value="Connexion"/>
+                </form:form>
     </div>
     <div class="pied">
         <c:import url="_PIED.jsp"/>
