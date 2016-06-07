@@ -59,13 +59,6 @@ public class JeuController {
         return "attente";
     }
     
-    @RequestMapping(value = "/actualiserjeu", method = RequestMethod.GET)
-    public String ajaxActualiserJeu(Model model, HttpSession session) {
-        
-        Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
-        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciere.getId()));
-        return "actualiser_jeu";
-    }
     
     @RequestMapping(value = "/plateau", method = RequestMethod.GET)
     public String plateauGet(Model model, HttpSession session)
