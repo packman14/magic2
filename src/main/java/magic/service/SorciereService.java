@@ -42,4 +42,9 @@ public class SorciereService {
         
         initialiserRessources(sorciere.getId());
     }
+    
+    public void save(Sorciere sorciere)
+    {
+        scs.save(sorciere);
+    }
 }

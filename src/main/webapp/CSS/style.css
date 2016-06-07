@@ -7,8 +7,10 @@ and open the template in the editor.
     Created on : 6 juin 2016, 12:25:43
     Author     : ajc
 */
-.contenu{
+body
+{
     background-image: url('../IMG/plateau.jpg');
     height: 900px;
     width: 1600px;
 }
+

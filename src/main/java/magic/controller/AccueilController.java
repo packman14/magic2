@@ -43,11 +43,21 @@ public class AccueilController {
     }
     
     
-    @RequestMapping(value = "/accueil", method = RequestMethod.POST)
+    @RequestMapping(value = "/connex", method = RequestMethod.POST)
     public String logPOST(@ModelAttribute(value = "sorciereCo") Sorciere so, HttpSession session)
     {
+        ss.save(so);
         session.setAttribute("sorciereCo", so);
         return "redirect:/choix";
+    }
+    
+    @RequestMapping(value = "/deconnex", method = RequestMethod.GET)
+    public String delogPOST(HttpSession session)
+    {
+        Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
+        ps.deconnecterSorciere(sorciere.getId());
+        session.invalidate();
+        return "redirect:/accueil";
     }
     
     

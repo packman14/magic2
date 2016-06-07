@@ -94,4 +94,16 @@ public class PartieService
         Sorciere sorciere = scs.findOne(sorciereID);
         return sorciere.getPartieEnCours();
     }
+    
+    public void deconnecterSorciere(Long sorciereID)
+    {
+        Sorciere sorciere = scs.findOne(sorciereID);
+        Partie partie = sorciere.getPartieEnCours();
+        
+        partie.getSorcieresEnJeu().remove(sorciere);
+        sorciere.setPartieEnCours(null);
+        
+        pcs.save(partie);
+        scs.save(sorciere);
+    }
 }

@@ -17,14 +17,6 @@
     <div class="menu">
         <c:import url="_MENU.jsp"/>
     </div>
-    <div class="contenu">
-        <c:set var="maRoute"><c:url value="/accueil"/></c:set>
-                <form:form modelAttribute="sorciereCo" method="post" action="${maRoute}">
-                    <label>Pseudo</label>
-                    <input type="text" name="pseudo"/>
-                    <input type="submit" value="Connexion"/>
-                </form:form>
-    </div>
     <div class="pied">
         <c:import url="_PIED.jsp"/>
     </div>
