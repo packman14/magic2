@@ -27,20 +27,23 @@ public class PartieService
     @Autowired
     private SorciereCRUDService scs;
     
-    public void joueurSuivant(Long partieID)
-    {
-        Partie partieActuelle = pcs.findOne(partieID);
-        int joueurActuel = partieActuelle.getNumeroSorciere();
-        if(joueurActuel < partieActuelle.getNbJoueurs())
-        {
-            partieActuelle.setNumeroSorciere(++joueurActuel);
-        }
-        else
-        {
-            partieActuelle.setNumeroSorciere(1);
-        }
-        pcs.save(partieActuelle);
-    }
+    @Autowired
+    private SorciereService ss;
+    
+//    public void joueurSuivant(Long partieID)
+//    {
+//        Partie partieActuelle = pcs.findOne(partieID);
+//        int joueurActuel = partieActuelle.getNumeroSorciere();
+//        if(joueurActuel < partieActuelle.getNbJoueurs())
+//        {
+//            partieActuelle.setNumeroSorciere(++joueurActuel);
+//        }
+//        else
+//        {
+//            partieActuelle.setNumeroSorciere(1);
+//        }
+//        pcs.save(partieActuelle);
+//    }
     
     public void initPartie(Long sorciereID)
     {
@@ -105,5 +108,32 @@ public class PartieService
         
         pcs.save(partie);
         scs.save(sorciere);
+    }
+    
+    public void commencerPartie(Long sorciereID)
+    {
+        Sorciere sorciere = scs.findOne(sorciereID);
+        Partie partie = sorciere.getPartieEnCours();
+        
+        partie.setPartieEnCours(Boolean.TRUE);
+        initialiserNumeros(partie.getId());
+        partie.setNumProchainJoueur(1);
+        pcs.save(partie);
+        
+        
+    }
+    
+    public void initialiserNumeros(Long partieID) 
+    {
+        Partie partie = pcs.findOne(partieID);
+        
+        List<Sorciere> sorcieresEnJeu = partie.getSorcieresEnJeu();
+        
+        for (int i = 1; i <= sorcieresEnJeu.size(); ++i) 
+        {
+            sorcieresEnJeu.get(i).setNumero(i);
+            scs.save(sorcieresEnJeu.get(i));
+        }
+
     }
 }

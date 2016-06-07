@@ -6,6 +6,7 @@
 package magic.controller;
 
 import javax.servlet.http.HttpSession;
+import magic.entity.Partie;
 import magic.entity.Sorciere;
 import magic.service.ConfigService;
 import magic.service.PartieService;
@@ -64,4 +65,13 @@ public class JeuController {
         return "plateau";
     }
     
+    @RequestMapping(value = "/debut", method = RequestMethod.GET)
+    public String debutGet(Model model, HttpSession session)
+    {
+        Sorciere sorciereCo = (Sorciere)session.getAttribute("sorciereCo");
+        ps.commencerPartie(sorciereCo.getId());
+        ps.getPartieEnCours(sorciereCo.getId());
+        
+        return "redirect:/plateau";
+    }
 }

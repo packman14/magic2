@@ -35,6 +35,8 @@ public class Partie implements Serializable {
     
     private Boolean partieEnCours;
     
+    private int numProchainJoueur;
+    
     @OneToMany (mappedBy = "partieEnCours")
     @JoinColumn(name = "partie_id")
     private List<Sorciere> sorcieresEnJeu= new ArrayList<>();
@@ -82,6 +84,14 @@ public class Partie implements Serializable {
 
     public void setPartieEnCours(Boolean partieEnCours) {
         this.partieEnCours = partieEnCours;
+    }
+
+    public int getNumProchainJoueur() {
+        return numProchainJoueur;
+    }
+
+    public void setNumProchainJoueur(int numProchainJoueur) {
+        this.numProchainJoueur = numProchainJoueur;
     }
     
 

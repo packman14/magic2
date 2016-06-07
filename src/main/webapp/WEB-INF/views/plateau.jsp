@@ -33,13 +33,18 @@
                         ${sorciere.dateCo}
                     </c:if>
                 </c:forEach>
+                <br>
+                <a  href="<c:url value="/debut"/>">
+                    <input type="button" value="Commencer la partie"/>
+                </a>
+                <br>
+                <img src="${sorciereCo.skin}"/>
             </c:when>
             <c:otherwise>
-                <input type="sumbit" value="Commencer la partie"/>
+                
             </c:otherwise>
         </c:choose>
-        <br>
-        <img src="${sorciereCo.skin}"/>
+
     </div>
     <div class="pied">
         <c:import url="_PIED.jsp"/>
