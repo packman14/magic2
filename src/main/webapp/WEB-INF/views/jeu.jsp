@@ -22,13 +22,32 @@
         <c:import url="_MENU.jsp"/>
     </div>
     <div class="contenu">
-        Afficher les cartes
+
         <div id="actionJoueur">
             <c:choose>
                 <c:when test="${partieEnCours.numProchainJoueur == sorciereCo.numero}">
                     C'est a moi de jouer
-                    <form:form>
+                    <c:set var="maRoute"><c:url value="/jeu"/></c:set>
+                    <form:form modelAttribute="formActionDTO" method="post" action="${maRoute}">
+
                         
+                        
+                        <div id="ingredientsDispo">
+                            <c:forEach items="${sorciereCo.ingredients}" var="ingredient">
+                                <img src="${ingredient.skin}"/>
+                                <form:checkbox path="ingredients" value="ingredient"/>
+                            </c:forEach>
+                        </div>
+
+
+
+
+                        <label>Piocher une carte</label>
+                        <form:radiobutton path="action" value="piocher"/><br>
+
+                        <label>Lancer un sort</label>
+                        <form:radiobutton path="action" value="lancerSort"/><br>
+
                     </form:form>
                 </c:when>
                 <c:otherwise>

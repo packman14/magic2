@@ -6,6 +6,7 @@
 package magic.controller;
 
 import javax.servlet.http.HttpSession;
+import magic.DTO.formActionDTO;
 import magic.entity.Partie;
 import magic.entity.Sorciere;
 import magic.service.ConfigService;
@@ -60,35 +61,43 @@ public class JeuController {
     @RequestMapping(value = "/actualiserjeu", method = RequestMethod.GET)
     public String ajaxActualiserJeu(Model model, HttpSession session) {
         
-        Sorciere sorciereCo = (Sorciere) session.getAttribute("sorciereCo");
-        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciereCo.getId()));
+        Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
+        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciere.getId()));
         return "actualiser_jeu";
     }
     
     @RequestMapping(value = "/plateau", method = RequestMethod.GET)
     public String plateauGet(Model model, HttpSession session)
     {
-        Sorciere sorciereCo = (Sorciere) session.getAttribute("sorciereCo");
-        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciereCo.getId()));
+        Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
+        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciere.getId()));
         return "plateau";
     }
     
     @RequestMapping(value = "/debut", method = RequestMethod.GET)
     public String debutGet(Model model, HttpSession session)
     {
-        Sorciere sorciereCo = (Sorciere)session.getAttribute("sorciereCo");
-        ps.commencerPartie(sorciereCo.getId());
-        ps.getPartieEnCours(sorciereCo.getId());
+        Sorciere sorciere = (Sorciere)session.getAttribute("sorciereCo");
+        ps.commencerPartie(sorciere.getId());
+        ps.getPartieEnCours(sorciere.getId());
         
+        session.setAttribute("sorciereCO", ss.findOne(sorciere.getId()));
         return "redirect:/jeu";
     }
     
     @RequestMapping(value = "/jeu", method = RequestMethod.GET)
     public String jeuGet(Model model, HttpSession session)
     {
-        Sorciere sorciereCo = (Sorciere)session.getAttribute("sorciereCo");
-        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciereCo.getId()));
+        Sorciere sorciere = (Sorciere)session.getAttribute("sorciereCo");
+        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciere.getId()));
+        model.addAttribute("formActionDTO", new formActionDTO());
         
         return "jeu";
+    }
+    
+    @RequestMapping(value = "/jeu", method = RequestMethod.POST)
+    public String jeuPost(Model model, HttpSession session)
+    {
+        return "";
     }
 }

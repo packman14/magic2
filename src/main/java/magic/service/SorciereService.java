@@ -47,4 +47,9 @@ public class SorciereService {
     {
         scs.save(sorciere);
     }
+    
+    public Sorciere findOne(Long sorciereID)
+    {
+        return scs.findOne(sorciereID);
+    }
 }

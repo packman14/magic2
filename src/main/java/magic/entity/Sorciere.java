@@ -6,8 +6,8 @@
 package magic.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,9 +37,9 @@ public class Sorciere implements Serializable {
     
     private String skin;
     
+    @Temporal(TemporalType.DATE)
     private Date dateCo;
 
-    @Temporal(TemporalType.DATE)
     public Date getDateCo() {
         return dateCo;
     }

@@ -36,9 +36,9 @@ public class AccueilController {
     private PartieService ps;
     
     @RequestMapping(value = "/accueil", method = RequestMethod.GET)
-    public String logGET(Model model) {
+    public String logGET(Model model, HttpSession session) {
 
-        model.addAttribute("sorciereCo", new Sorciere());
+        session.setAttribute("sorciereCo", new Sorciere());
         return "accueil";
     }
     
@@ -47,7 +47,7 @@ public class AccueilController {
     public String logPOST(@ModelAttribute(value = "sorciereCo") Sorciere so, HttpSession session)
     {
         ss.save(so);
-        session.setAttribute("sorciereCo", so);
+        session.setAttribute("sorciereCO", ss.findOne(so.getId()));
         return "redirect:/choix";
     }
     
@@ -75,8 +75,10 @@ public class AccueilController {
     {
         Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
         ss.initialiserSorciere(sorciere, numSorciere);
-        
+        session.setAttribute("sorciereCo", sorciere);
         ps.initPartie(sorciere.getId());
+        
+        session.setAttribute("sorciereCO", ss.findOne(sorciere.getId()));
         
         return "redirect:/plateau";
     }
