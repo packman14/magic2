@@ -7,7 +7,7 @@ function myFunction()
 {
     setInterval(function(){ 
         $( "#contenu" ).load( "attente" ); 
-    }, 200);
+    }, 5000);
 }
 
 $(myFunction);

@@ -52,7 +52,7 @@ public class JeuController {
     public String ajaxAttente(Model model, HttpSession session) {
         
         Sorciere sorciereCo = (Sorciere) session.getAttribute("sorciereCo");
-        model.addAttribute("partieEnCours", ps.listeAutresSorcieres(sorciereCo.getId()));
+        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciereCo.getId()));
         return "attente";
     }
     

@@ -22,7 +22,7 @@
     <div class="menu">
         <c:import url="_MENU.jsp"/>
     </div>
-    <div class="contenu">
+    <div class="contenu" id="contenu">
         <c:choose>
             <c:when test="${partieEnCours.partieEnCours==false}">
                 Joueurs connectés: 
@@ -35,7 +35,6 @@
                 </c:forEach>
             </c:when>
             <c:otherwise>
-                <div id="joueursCo"/>
                 <input type="sumbit" value="Commencer la partie"/>
             </c:otherwise>
         </c:choose>
