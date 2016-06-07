@@ -38,6 +38,7 @@
                 <input type="sumbit" value="Commencer la partie"/>
             </c:otherwise>
         </c:choose>
+        <br>
         <img src="${sorciereCo.skin}"/>
     </div>
     <div class="pied">

@@ -12,5 +12,7 @@ Joueurs connectés:
         <img src="${sorciere.skin}"/>
         ${sorciere.dateCo}
     </c:if>
-    <br><img src="${sorciereCo.skin}"/>
+
 </c:forEach>
+<br>
+<img src="${sorciereCo.skin}"/>
