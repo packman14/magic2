@@ -5,6 +5,8 @@
  */
 package magic.controller;
 
+import javax.servlet.http.HttpSession;
+import magic.entity.Sorciere;
 import magic.service.ConfigService;
 import magic.service.PartieService;
 import magic.service.SorciereService;
@@ -44,5 +46,13 @@ public class JeuController {
         }
 
         return "ressources";
+    }
+    
+    @RequestMapping(value = "/attente", method = RequestMethod.GET)
+    public String ajaxAttente(Model model, HttpSession session) {
+        
+        Sorciere sorciereCo = (Sorciere) session.getAttribute("sorciereCo");
+        model.addAttribute("partieEnCours", ps.listeAutresSorcieres(sorciereCo.getId()));
+        return "attente";
     }
 }

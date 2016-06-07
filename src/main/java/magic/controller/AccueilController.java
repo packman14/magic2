@@ -68,15 +68,9 @@ public class AccueilController {
         
         ps.initPartie(sorciere.getId());
         
-        return "redirect:/attente";
+        return "redirect:/plateau";
     }
 
     
-    @RequestMapping(value = "/attente", method = RequestMethod.GET)
-    public String ajaxAttente(Model model, HttpSession session) {
-        
-        Sorciere sorciereCo = (Sorciere) session.getAttribute("sorciereCo");
-        model.addAttribute("partieEnCours", ps.listeAutresSorcieres(sorciereCo.getId()));
-        return "attente";
-    }
+    
 }
