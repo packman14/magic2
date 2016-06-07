@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="/JS/mesScripts.js" type="text/javascript"></script>
     <div class="head">
         <c:import url="_HEAD.jsp"/>
     </div>
@@ -21,13 +22,21 @@
         <c:import url="_MENU.jsp"/>
     </div>
     <div class="contenu">
-        <c:when test="${partieEnCours==null}">
-            En attente de joueurs
+        <c:when test="${partieEnCours.partieEnCours==false}">
+            Joueurs connectés: 
+            <c:forEach items="${partieEnCours.sorciereEnJeu}" var="sorciere">
+                <c:if test="${sorciere.id != sorciereCo.id}">
+                    ${sorciere.pseudo}
+                    <img src="${sorciere.skin}"/>
+                    ${sorciere.dateCo}
+                </c:if>
+            </c:forEach>
         </c:when>
         <c:otherwise>
             <div id="joueursCo"/>
             <input type="sumbit" value="Commencer la partie"/>
         </c:otherwise>
+        <img src="${sorciereCo.skin}"/>
     </div>
     <div class="pied">
         <c:import url="_PIED.jsp"/>

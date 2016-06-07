@@ -55,4 +55,13 @@ public class JeuController {
         model.addAttribute("partieEnCours", ps.listeAutresSorcieres(sorciereCo.getId()));
         return "attente";
     }
+    
+    @RequestMapping(value = "/plateau", method = RequestMethod.GET)
+    public String plateauGet(Model model, HttpSession session)
+    {
+        Sorciere sorciereCo = (Sorciere) session.getAttribute("sorciereCo");
+        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciereCo.getId()));
+        return "plateau";
+    }
+    
 }

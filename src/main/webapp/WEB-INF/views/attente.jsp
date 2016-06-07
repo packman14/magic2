@@ -8,7 +8,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 Joueurs connectés: 
 <c:forEach items="${partieEnCours.sorciereEnJeu}" var="sorciere">
-    ${sorciere.pseudo}
-    <img src="${sorciere.skin}"/>
-    ${sorciere.dateCo}
+    <c:if test="${sorciere.id != sorciereCo.id}">
+        ${sorciere.pseudo}
+        <img src="${sorciere.skin}"/>
+        ${sorciere.dateCo}
+    </c:if>
+    <img src="${sorciereCo.skin}"/>
 </c:forEach>

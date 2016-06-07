@@ -88,4 +88,10 @@ public class PartieService
         sorcieres.remove(sorciere);
         return sorcieres;
     }
+    
+    public Partie getPartieEnCours(Long sorciereID)
+    {
+        Sorciere sorciere = scs.findOne(sorciereID);
+        return sorciere.getPartieEnCours();
+    }
 }
