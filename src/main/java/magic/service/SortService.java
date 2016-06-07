@@ -57,6 +57,10 @@ public class SortService {
     public void effetsSort(Sort.TypeSort typeSort, Long sorciereIDSource, Long sorciereIDCible) {
         switch (typeSort) {
             case DIVINATION: {
+                //récuperation de la liste de sorcière
+               List<Sorciere> sorcieresCible = socr.findAllById(sorciereIDCible);
+               //récuperation de la liste de ses ingrédients
+                
                 
             }
             case FILTREAMOUR: {
@@ -102,9 +106,9 @@ public class SortService {
             }
             case INVISIBILITE: {
                 //récuperation de la liste de sorcière
-               List<Sorciere> sorciereCible = socr.findAllById(sorciereIDCible);
+               List<Sorciere> sorcieresCible = socr.findAllById(sorciereIDCible);
                //pour toutes ces sorcières
-               for (Sorciere so:sorciereCible)
+               for (Sorciere so:sorcieresCible)
                {
                    //on vole un ingréient aléatoire
                 volerCarte(sorciereIDSource, sorciereIDCible);
