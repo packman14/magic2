@@ -12,3 +12,9 @@ function myFunction()
 }
 
 $(myFunction);
+
+
+function lancerSort(){
+    $.post("jeu",$("#lancerSort").serialize());
+}
+

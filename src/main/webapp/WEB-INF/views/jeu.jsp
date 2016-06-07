@@ -28,18 +28,18 @@
                 <c:when test="${partieEnCours.numProchainJoueur == sorciereCo.numero}">
                     C'est a moi de jouer
                     <c:set var="maRoute"><c:url value="/jeu"/></c:set>
-                    <form:form modelAttribute="formActionDTO" method="post" action="${maRoute}">
+                    <form:form id="lancerSort" modelAttribute="formActionDTO" method="post" action="${maRoute}">
 
                         
                         
                         <div id="ingredientsDispo">
                             <c:forEach items="${sorciereCo.ingredients}" var="ingredient">
                                 <img src="${ingredient.skin}"/>
-                                <form:checkbox path="ingredients" value="ingredient"/>
+                                <form:checkbox path="ingredients" value="ingredient" />
                             </c:forEach>
                         </div>
 
-
+                        
 
 
                         <label>Piocher une carte</label>
@@ -47,11 +47,13 @@
 
                         <label>Lancer un sort</label>
                         <form:radiobutton path="action" value="lancerSort"/><br>
-
+                        
+                        <input type="button" id="bouton" value="Lancer le sort" onclick="lancerSort()"/>
+                        
                     </form:form>
                 </c:when>
                 <c:otherwise>
-                    C'est pas à moi de jouer
+                    c'est pas à moi de jouer
                 </c:otherwise>
             </c:choose>
         </div>

@@ -6,7 +6,7 @@
 package magic.controller;
 
 import javax.servlet.http.HttpSession;
-import magic.DTO.formActionDTO;
+import magic.DTO.FormActionDTO;
 import magic.entity.Partie;
 import magic.entity.Sorciere;
 import magic.service.ConfigService;
@@ -15,6 +15,7 @@ import magic.service.SorciereService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -90,13 +91,13 @@ public class JeuController {
     {
         Sorciere sorciere = (Sorciere)session.getAttribute("sorciereCo");
         model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciere.getId()));
-        model.addAttribute("formActionDTO", new formActionDTO());
+        model.addAttribute("formActionDTO", new FormActionDTO());
         
         return "jeu";
     }
     
     @RequestMapping(value = "/jeu", method = RequestMethod.POST)
-    public String jeuPost(Model model, HttpSession session)
+    public String jeuPost(@ModelAttribute("formActionDTO") FormActionDTO fad)
     {
         return "";
     }
