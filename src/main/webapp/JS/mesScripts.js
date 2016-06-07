@@ -9,4 +9,5 @@ function myFunction()
         $( "#contenu" ).load( "attente" ); 
     }, 200);
 }
-$( myFunction );
+
+$(myFunction);

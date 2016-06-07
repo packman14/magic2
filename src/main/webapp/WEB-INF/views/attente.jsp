@@ -5,9 +5,8 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-Joueurs connectÃ©s: 
-<c:forEach items="${partieEnCours.sorciereEnJeu}" var="sorciere">
+Joueurs connectés: 
+<c:forEach items="${partieEnCours.sorcieresEnJeu}" var="sorciere">
     <c:if test="${sorciere.id != sorciereCo.id}">
         ${sorciere.pseudo}
         <img src="${sorciere.skin}"/>
