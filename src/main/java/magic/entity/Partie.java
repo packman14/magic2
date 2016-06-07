@@ -31,8 +31,6 @@ public class Partie implements Serializable {
 
     private int numeroSorciere;
     
-    private int nbJoueurs;
-    
     private Boolean partieEnCours;
     
     private int numProchainJoueur;
@@ -55,14 +53,6 @@ public class Partie implements Serializable {
 
     public void setNumeroSorciere(int numeroSorciere) {
         this.numeroSorciere = numeroSorciere;
-    }
-
-    public int getNbJoueurs() {
-        return nbJoueurs;
-    }
-
-    public void setNbJoueurs(int nbJoueurs) {
-        this.nbJoueurs = nbJoueurs;
     }
 
     public List<Sorciere> getSorcieresEnJeu() {

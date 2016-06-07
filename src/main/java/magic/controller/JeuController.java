@@ -57,6 +57,14 @@ public class JeuController {
         return "attente";
     }
     
+    @RequestMapping(value = "/actualiserjeu", method = RequestMethod.GET)
+    public String ajaxActualiserJeu(Model model, HttpSession session) {
+        
+        Sorciere sorciereCo = (Sorciere) session.getAttribute("sorciereCo");
+        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciereCo.getId()));
+        return "actualiser_jeu";
+    }
+    
     @RequestMapping(value = "/plateau", method = RequestMethod.GET)
     public String plateauGet(Model model, HttpSession session)
     {
@@ -72,6 +80,15 @@ public class JeuController {
         ps.commencerPartie(sorciereCo.getId());
         ps.getPartieEnCours(sorciereCo.getId());
         
-        return "redirect:/plateau";
+        return "redirect:/jeu";
+    }
+    
+    @RequestMapping(value = "/jeu", method = RequestMethod.GET)
+    public String jeuGet(Model model, HttpSession session)
+    {
+        Sorciere sorciereCo = (Sorciere)session.getAttribute("sorciereCo");
+        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciereCo.getId()));
+        
+        return "jeu";
     }
 }

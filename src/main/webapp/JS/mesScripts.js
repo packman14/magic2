@@ -6,8 +6,9 @@
 function myFunction() 
 {
     setInterval(function(){ 
-        $( "#contenu" ).load( "attente" ); 
-    }, 5000);
+        $( "#contenu" ).load( "attente" );
+        $( "#action_joueur" ).load( "actualiserjeu" );
+    }, 1000);
 }
 
 $(myFunction);

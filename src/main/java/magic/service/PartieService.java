@@ -117,7 +117,7 @@ public class PartieService
         
         partie.setPartieEnCours(Boolean.TRUE);
         initialiserNumeros(partie.getId());
-        partie.setNumProchainJoueur(1);
+        partie.setNumProchainJoueur(0);
         pcs.save(partie);
         
         
@@ -131,8 +131,8 @@ public class PartieService
         
         for (int i = 1; i <= sorcieresEnJeu.size(); ++i) 
         {
-            sorcieresEnJeu.get(i).setNumero(i);
-            scs.save(sorcieresEnJeu.get(i));
+            sorcieresEnJeu.get(i-1).setNumero(i);
+            scs.save(sorcieresEnJeu.get(i-1));
         }
 
     }
