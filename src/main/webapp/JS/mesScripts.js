@@ -19,5 +19,5 @@ function lancerSort(){
 }
 function piocher()
 {
-    $.post("piocher",$("piocher"));
+    $.post("piocher",$("#piocher"));
 }
