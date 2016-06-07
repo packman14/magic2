@@ -60,26 +60,53 @@ public class SortService {
                 
             }
             case FILTREAMOUR: {
+                //récuperation de la sorciere ciblee
                 Sorciere sorciereCible = socr.findOne(sorciereIDCible);
+                //récuperation de la liste de ses ingrédients
                 List<Ingredient> ingredientsCible = sorciereCible.getIngredients();
+                //Si elle possède plus d'un ingrédient...
                 if (ingredientsCible.size()>=1)
                 {
-                    
+                    //définir la taille de la liste
+                    int nb = ingredientsCible.size();
+                    //pour un ingrédient sur deux
+                    for (int i=1; i<=nb/2; ++i)
+                    {
+                        //voler un ingrédient aléatoire
+                    volerCarte(sorciereIDSource, sorciereIDCible);
+                    }
                 }
+                //...sinon
                 else
                 {
-                    
+                    //la sorciere perd 
+                    socr.delete(sorciereCible);
                 }
                 
 
             }
             case HYPNOSE: {
-
+                //récuperation de la sorciere ciblee
+                Sorciere sorciereCible = socr.findOne(sorciereIDCible);
+                //récuperation de la liste de ses ingrédients
+                List<Ingredient> ingredientsCible = sorciereCible.getIngredients();
+                //Pour un entier de 1 à 3, on vole une carte
+                for (int i=1; i<=3; ++i)
+                {
+                    volerCarte(sorciereIDSource, sorciereIDCible);
+                }
+                //récupération de l'ingrédient à échanger
+                Ingredient ingADonner = ics.findOne(sorciereIDSource);
+                //changement de la soorcière propriétaire
+                ingADonner.setSorciere(sorciereCible);
             }
             case INVISIBILITE: {
+                //récuperation de la liste de sorcière
                List<Sorciere> sorciereCible = socr.findAllById(sorciereIDCible);
+               //pour toutes ces sorcières
                for (Sorciere so:sorciereCible)
                {
+                   //on vole un ingréient aléatoire
                 volerCarte(sorciereIDSource, sorciereIDCible);
                }
             }
