@@ -7,9 +7,9 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
 <c:choose>
-    <c:when test="${sorciereCo.pseudo==null}">
+    <c:when test="${nouvSorciere.pseudo==null && sorciereCo.pseudo == null}">
         <c:set var="maRoute"><c:url value="/connex"/></c:set>
-        <form:form modelAttribute="sorciereCo" method="post" action="${maRoute}">
+        <form:form modelAttribute="nouvSorciere" method="post" action="${maRoute}">
             <label>Pseudo</label>
             <input type="text" name="pseudo"/>
             <input type="submit" value="Connexion"/>

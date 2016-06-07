@@ -32,6 +32,7 @@ public class IngredientService {
 
         Sorciere maSorciere = socs.findOne(sorciereID);
         maSorciere.addIngredient(monIngredient);
+        monIngredient.setSorciere(maSorciere);
 
         ics.save(monIngredient);
         socs.save(maSorciere);
