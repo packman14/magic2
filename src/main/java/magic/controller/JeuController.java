@@ -6,7 +6,6 @@
 package magic.controller;
 
 import javax.servlet.http.HttpSession;
-import magic.DTO.FormActionDTO;
 import magic.entity.Partie;
 import magic.entity.Sorciere;
 import magic.service.ConfigService;
@@ -84,14 +83,9 @@ public class JeuController {
     {
         Sorciere sorciere = (Sorciere)session.getAttribute("sorciereCo");
         model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciere.getId()));
-        model.addAttribute("formActionDTO", new FormActionDTO());
+//        model.addAttribute("formActionDTO", new FormActionDTO());
         
         return "jeu";
     }
     
-    @RequestMapping(value = "/jeu", method = RequestMethod.POST)
-    public String jeuPost(@ModelAttribute("formActionDTO") FormActionDTO fad)
-    {
-        return "";
-    }
 }
