@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -37,6 +39,7 @@ public class Sorciere implements Serializable {
     
     private Date dateCo;
 
+    @Temporal(TemporalType.DATE)
     public Date getDateCo() {
         return dateCo;
     }

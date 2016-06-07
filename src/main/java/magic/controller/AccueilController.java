@@ -79,7 +79,4 @@ public class AccueilController {
         model.addAttribute("partieEnCours", ps.listeAutresSorcieres(sorciereCo.getId()));
         return "attente";
     }
-
-    
-    
 }
