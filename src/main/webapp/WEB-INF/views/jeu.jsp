@@ -22,7 +22,12 @@
         <c:import url="_MENU.jsp"/>
     </div>
     <div class="contenu">
-
+        <div id="ingredientsDispo">
+            <c:forEach items="${sorciereCo.ingredients}" var="ingredient">
+                <img src="${ingredient.skin}"/>
+                <form:checkbox path="ingredients" value="ingredient" />
+            </c:forEach>
+        </div>
         <div id="actionJoueur">
             <c:choose>
                 <c:when test="${partieEnCours.numProchainJoueur == sorciereCo.numero}">
