@@ -5,6 +5,7 @@
  */
 package magic.DAO;
 
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import magic.entity.Sorciere;
 
@@ -13,5 +14,5 @@ import magic.entity.Sorciere;
  * @author ajc
  */
 public interface SorciereCRUDService extends CrudRepository<Sorciere, Long>{
-    
+    public List<Sorciere> findAllById(Long sorciereIDCible);
 }
