@@ -25,11 +25,15 @@ public class IngredientService {
 
     @Autowired
     private SorciereCRUDService socs;
+    
+    @Autowired
+    private ConfigService cs;
 
     public void ajouterIngredient(Long sorciereID, Ingredient.TypeIngredient typeIngredient) {
         Ingredient monIngredient = new Ingredient();
         monIngredient.setTypeIngredient(typeIngredient);
-
+        monIngredient.setSkin(cs.urlCarteIngredient(typeIngredient));
+        
         Sorciere maSorciere = socs.findOne(sorciereID);
         maSorciere.addIngredient(monIngredient);
         monIngredient.setSorciere(maSorciere);

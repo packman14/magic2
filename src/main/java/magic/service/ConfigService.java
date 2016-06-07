@@ -7,6 +7,7 @@ package magic.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import magic.entity.Ingredient;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,5 +28,36 @@ public class ConfigService {
         
         return cartes;
         
+    }
+    
+    public String urlCarteIngredient(Ingredient.TypeIngredient typeIngredient)
+    {
+        switch(typeIngredient)
+        {
+            case BATWING:
+            {
+                return "IMG/batwing.jpg";
+            }
+            case BAVECRAPAUD:
+            {
+                return "IMG/bave_crapaud.jpg";
+            }
+            case LAPIS:
+            {
+                return "IMG/lapis.jpg";
+            }
+            case LICORNE:
+            {
+                return "IMG/licorne.jpg";
+            }
+            case SANGVIERGE:
+            {
+                return "IMG/sang_vierge.jpg";
+            }
+            default:
+            {
+                return "";
+            }
+        }
     }
 }
