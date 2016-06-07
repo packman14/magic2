@@ -28,7 +28,6 @@
                 <c:when test="${partieEnCours.numProchainJoueur == sorciereCo.numero}">
                     C'est a moi de jouer
                     <form:form>
-                        <form:checkboxes></form:checkboxes>
                         
                     </form:form>
                 </c:when>
