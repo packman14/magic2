@@ -22,15 +22,5 @@
         <a  href="<c:url value="/jeu"/>">
             <input type="button" value="Rejoindre la partie"/>
         </a>
-        <c:choose>
-            <c:when test="${partieEnCours.numProchainJoueur == sorciereCo.numero}">
-                C'est a moi de jouer
-            </c:when>
-            <c:otherwise>
-                ${partieEnCours.numProchainJoueur}
-                C'est pas à moi de jouer
-            </c:otherwise>
-        </c:choose>
-
     </c:otherwise>
 </c:choose>
