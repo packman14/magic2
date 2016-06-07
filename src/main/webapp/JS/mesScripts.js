@@ -17,4 +17,7 @@ $(myFunction);
 function lancerSort(){
     $.post("jeu",$("#lancerSort").serialize());
 }
-
+function piocher()
+{
+    $.post("piocher",$("piocher"));
+}

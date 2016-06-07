@@ -60,8 +60,6 @@ public class SortService {
                 //récuperation de la liste de sorcière
                List<Sorciere> sorcieresCible = socr.findAllById(sorciereIDCible);
                //récuperation de la liste de ses ingrédients
-                
-                
             }
             case FILTREAMOUR: {
                 //récuperation de la sorciere ciblee
