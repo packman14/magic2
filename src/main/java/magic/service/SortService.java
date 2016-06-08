@@ -68,7 +68,7 @@ public class SortService {
                 //récuperation de la liste de ses ingrédients
                 List<Ingredient> ingredientsCible = sorciereCible.getIngredients();
                 //Si elle possède plus d'un ingrédient...
-                if (ingredientsCible.size()>=1)
+                if (ingredientsCible.size()>1)
                 {
                     //définir la taille de la liste
                     int nb = ingredientsCible.size();
