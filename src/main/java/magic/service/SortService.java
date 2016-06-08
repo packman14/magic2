@@ -42,13 +42,14 @@ public class SortService {
         
         //pour tous les sorts existant
         for (Sort s : sorts) {
-            
+            List<Ingredient.TypeIngredient> recette = s.getRecette();
             //ingrédients correspondant à un sort
-            if (s.getRecette().contains(ingredient1.getTypeIngredient()) 
+            if (recette.contains(ingredient1.getTypeIngredient()) 
                     && s.getRecette().contains(ingredient2.getTypeIngredient())) {
                 effetsSort(s.getTypeSort(), sorciereIDSource, sorciereIDCible);
                 ics.delete(ingredient2);
                 ics.delete(ingredient1);
+                break;
             }
             else{
                 throw new RuntimeException("pas de recette correspondant aux ingrédients");

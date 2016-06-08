@@ -17,6 +17,7 @@ import magic.entity.Sorciere;
 import magic.service.ConfigService;
 import magic.service.PartieService;
 import magic.service.SorciereService;
+import magic.service.SortService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -35,9 +36,12 @@ public class AccueilController {
     @Autowired
     private PartieService ps;
     
+    @Autowired SortService sos;
+    
     @RequestMapping(value = "/accueil", method = RequestMethod.GET)
     public String logGET(Model model, HttpSession session) {
 
+        cs.initialiserSorts();
         model.addAttribute("nouvSorciere", new Sorciere());
         return "accueil";
     }
