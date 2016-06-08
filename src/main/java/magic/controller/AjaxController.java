@@ -50,6 +50,15 @@ public class AjaxController {
         return "ingredients_dispo";
     }
     
+    @RequestMapping(value = "/actualisertour", method = RequestMethod.GET)
+    public String ajaxActualiserTour(Model model, HttpSession session) {
+        
+        Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
+        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciere.getId()));
+        
+        return "tour_actuel";
+    }
+    
     @RequestMapping(value = "/actualiserjeu", method = RequestMethod.GET)
     public String ajaxActualiserJeu(Model model, HttpSession session) {
         
@@ -61,7 +70,10 @@ public class AjaxController {
     @RequestMapping(value = "/piocher", method = RequestMethod.POST)
     public String ajaxPiocher(Model model, HttpSession session) {
         Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
-        Partie partieEnCours = sorciere.getPartieEnCours();//TODO incrémenter le tour actuel
+        Partie partieEnCours = sorciere.getPartieEnCours();
+        
+        ps.joueurSuivant(partieEnCours.getId());
+        
         is.ajouterIngredientAleatoire(sorciere.getId());
         
         session.setAttribute("sorciereCo", ss.findOne(sorciere.getId()));
@@ -74,7 +86,11 @@ public class AjaxController {
         Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
         Partie partieEnCours = sorciere.getPartieEnCours();
         
+        
+        
         sos.lancerSort(idCarte1, idCarte2, sorciere.getId(), null);
+        
+        ps.joueurSuivant(partieEnCours.getId());
         
         
         session.setAttribute("sorciereCo", ss.findOne(sorciere.getId()));
