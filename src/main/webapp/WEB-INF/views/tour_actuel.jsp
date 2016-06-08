@@ -7,6 +7,6 @@
         <input type="button" id="bouton" value="Lancer Sort" onclick="sort()"/>
     </c:when>
     <c:otherwise>
-        c'est au joueur ${partieEnCours.numProchainJoueur} de jouer
+        c'est au joueur ${partieEnCours.numProchainJoueur} de jouer. toi t'es le joueur ${sorciereCo.numero} connard
     </c:otherwise>
 </c:choose>

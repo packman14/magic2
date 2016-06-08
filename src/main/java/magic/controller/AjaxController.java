@@ -55,7 +55,7 @@ public class AjaxController {
         
         Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
         model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciere.getId()));
-        
+        session.setAttribute("sorciereCo", ss.findOne(sorciere.getId()));
         return "tour_actuel";
     }
     
