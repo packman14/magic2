@@ -5,6 +5,7 @@
  */
 package magic.service;
 
+import java.util.List;
 import magic.DAO.SorciereCRUDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,11 @@ public class SorciereService {
     public void save(Sorciere sorciere)
     {
         scs.save(sorciere);
+    }
+    
+    public void save(List<Sorciere> sorcieres)
+    {
+        scs.save(sorcieres);
     }
     
     public Sorciere findOne(Long sorciereID)

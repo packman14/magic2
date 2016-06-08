@@ -28,8 +28,6 @@ public class Partie implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private int numeroSorciere;
     
     private Boolean partieEnCours;
     
@@ -45,14 +43,6 @@ public class Partie implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public int getNumeroSorciere() {
-        return numeroSorciere;
-    }
-
-    public void setNumeroSorciere(int numeroSorciere) {
-        this.numeroSorciere = numeroSorciere;
     }
 
     public List<Sorciere> getSorcieresEnJeu() {

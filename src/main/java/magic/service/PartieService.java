@@ -33,14 +33,14 @@ public class PartieService
     public void joueurSuivant(Long partieID)
     {
         Partie partieActuelle = pcs.findOne(partieID);
-        int joueurActuel = partieActuelle.getNumeroSorciere();
+        int joueurActuel = partieActuelle.getNumProchainJoueur();
         if(joueurActuel < partieActuelle.getSorcieresEnJeu().size())
         {
-            partieActuelle.setNumeroSorciere(++joueurActuel);
+            partieActuelle.setNumProchainJoueur(++joueurActuel);
         }
         else
         {
-            partieActuelle.setNumeroSorciere(1);
+            partieActuelle.setNumProchainJoueur(1);
         }
         pcs.save(partieActuelle);
     }
@@ -132,8 +132,9 @@ public class PartieService
         for (int i = 1; i <= sorcieresEnJeu.size(); ++i) 
         {
             sorcieresEnJeu.get(i-1).setNumero(i);
-            scs.save(sorcieresEnJeu.get(i-1));
         }
+        scs.save(sorcieresEnJeu);
+        pcs.save(partie);
 
     }
 }
