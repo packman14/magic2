@@ -39,14 +39,6 @@ public class Sorciere implements Serializable {
     
     @Temporal(TemporalType.DATE)
     private Date dateCo;
-
-    public Date getDateCo() {
-        return dateCo;
-    }
-
-    public void setDateCo(Date dateCo) {
-        this.dateCo = dateCo;
-    }
     
     @OneToMany (mappedBy = "sorciere")
     @JoinColumn(name = "sorciere_id")
@@ -54,6 +46,15 @@ public class Sorciere implements Serializable {
 
     @ManyToOne
     private Partie partieEnCours;
+
+    
+    public Date getDateCo() {
+        return dateCo;
+    }
+
+    public void setDateCo(Date dateCo) {
+        this.dateCo = dateCo;
+    }
 
     public int getNumero() {
         return numero;

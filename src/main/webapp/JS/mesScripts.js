@@ -8,6 +8,8 @@ function myFunction()
     setInterval(function(){ 
         $( "#contenu" ).load( "attente" );
         $( "#action_joueur" ).load( "actualiserjeu" );
+        $( "#ingredients_dispo" ).load( "actualiseringredients" );
+        
     }, 1000);
 }
 

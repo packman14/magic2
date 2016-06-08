@@ -22,10 +22,9 @@
         <c:import url="_MENU.jsp"/>
     </div>
     <div class="contenu">
-        <div id="ingredientsDispo">
+        <div id="ingredients_dispo">
             <c:forEach items="${sorciereCo.ingredients}" var="ingredient">
-                <img src="${ingredient.skin}"/>
-                <form:checkbox path="ingredients" value="ingredient" />
+                <img src="${ingredient.skin}" />
             </c:forEach>
         </div>
         <div id="actionJoueur">
