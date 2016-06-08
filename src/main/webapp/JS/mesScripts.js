@@ -23,6 +23,7 @@ function lancerSort() {
 function piocher()
 {
     $.post("piocher", $("#piocher"));
+    $("#ingredients_dispo").load("actualiseringredients");
 }
 
 function sort()

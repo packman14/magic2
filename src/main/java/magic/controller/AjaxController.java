@@ -74,7 +74,7 @@ public class AjaxController {
         Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
         Partie partieEnCours = sorciere.getPartieEnCours();
         
-        sos.lancerSort(idCarte1, idCarte2);
+        sos.lancerSort(idCarte1, idCarte2, sorciere.getId(), null);
         
         
         session.setAttribute("sorciereCo", ss.findOne(sorciere.getId()));
