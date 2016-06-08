@@ -70,7 +70,10 @@ public class AjaxController {
     @RequestMapping(value = "/piocher", method = RequestMethod.POST)
     public String ajaxPiocher(Model model, HttpSession session) {
         Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
-        Partie partieEnCours = sorciere.getPartieEnCours();//TODO incrémenter le tour actuel
+        Partie partieEnCours = sorciere.getPartieEnCours();
+        
+        ps.joueurSuivant(partieEnCours.getId());
+        
         is.ajouterIngredientAleatoire(sorciere.getId());
         
         session.setAttribute("sorciereCo", ss.findOne(sorciere.getId()));
