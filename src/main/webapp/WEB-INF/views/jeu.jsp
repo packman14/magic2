@@ -39,7 +39,6 @@
                 </c:otherwise>
             </c:choose>
         </div>
-
         <c:forEach items="${partieEnCours.sorcieresEnJeu}" var="sorciere">
             <c:if test="${sorciere.id != sorciereCo.id}">
                 <div id="visuAdv">
