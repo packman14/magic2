@@ -76,7 +76,7 @@ public class AjaxController {
         
         is.ajouterIngredientAleatoire(sorciere.getId());
         
-        session.setAttribute("sorciereCo", ss.findOne(sorciere.getId()));
+//        session.setAttribute("sorciereCo", ss.findOne(sorciere.getId()));
         
         return "page_vide";
     }
