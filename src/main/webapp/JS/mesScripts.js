@@ -34,6 +34,7 @@ function sort()
     var cartes = $(".bordureVerte");
 
     $.post("sort/" + cartes.get(0).id + "/" + cartes.get(1).id, $("#sort"));
+     $("#ingredients_dispo").load("actualiseringredients");
 }
 
 function carteCliquee(carteCliqueeID)
