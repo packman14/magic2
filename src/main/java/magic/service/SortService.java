@@ -34,26 +34,24 @@ public class SortService {
     private IngredientCRUDService ics;
 
     public void lancerSort(Long ingredientId1, Long ingredientId2, Long sorciereIDSource, Long sorciereIDCible) throws RuntimeException {
-        
+
         Ingredient ingredient1 = ics.findOne(ingredientId2);
         Ingredient ingredient2 = ics.findOne(ingredientId1);
         //récupérer tous les sorts
         List<Sort> sorts = scs.findAll();
-        
+
         //pour tous les sorts existant
         for (Sort s : sorts) {
             List<Ingredient.TypeIngredient> recette = s.getRecette();
             //ingrédients correspondant à un sort
-            if (recette.contains(ingredient1.getTypeIngredient()) 
+            if (recette.contains(ingredient1.getTypeIngredient())
                     && s.getRecette().contains(ingredient2.getTypeIngredient())) {
                 effetsSort(s.getTypeSort(), sorciereIDSource, sorciereIDCible);
                 ics.delete(ingredient2);
                 ics.delete(ingredient1);
-                break;
+
             }
-            else{
-                throw new RuntimeException("pas de recette correspondant aux ingrédients");
-            }
+
         }
     }
 
@@ -61,7 +59,7 @@ public class SortService {
         switch (typeSort) {
             case DIVINATION: {
                 //récuperation de la liste de sorcière
-               List<Sorciere> sorcieresCible = socr.findAllById(sorciereIDCible);
+               List<Sorciere> sorcieresCible = socr.findAll();
                //récuperation de la liste de ses ingrédients
             }
             case FILTREAMOUR: {
@@ -107,12 +105,12 @@ public class SortService {
             }
             case INVISIBILITE: {
                 //récuperation de la liste de sorcière
-               List<Sorciere> sorcieresCible = socr.findAllById(sorciereIDCible);
+               List<Sorciere> sorcieresCible = socr.findAll();
                //pour toutes ces sorcières
                for (Sorciere so:sorcieresCible)
                {
                    //on vole un ingréient aléatoire
-                volerCarte(sorciereIDSource, sorciereIDCible);
+                volerCarte(sorciereIDSource, so.getId());
                }
             }
             case SOMMEILPROFOND: {
@@ -132,11 +130,11 @@ public class SortService {
             //Modification de la sorciere propriétaire de l'ingrédient
             ic.setSorciere(sorciereSource);
 //            //ajout de l'ingrédient dans la liste de la sorciere source
-//            sorciereSource.addIngredient(ic);
-//            //sauvegarde de l'ingrédient
-//            is.save(ic);
-//            //suppresion de l'ingrédient dans la liste de la sorciere cible
-//            ingredientsCible.remove(ic);
+            sorciereSource.addIngredient(ic);
+            //sauvegarde de l'ingrédient
+            ics.save(ic);
+            //suppresion de l'ingrédient dans la liste de la sorciere cible
+            ingredientsCible.remove(ic);
         }
     
 

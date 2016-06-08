@@ -14,5 +14,7 @@ import magic.entity.Sorciere;
  * @author ajc
  */
 public interface SorciereCRUDService extends CrudRepository<Sorciere, Long>{
-    public List<Sorciere> findAllById(Long sorciereIDCible);
+    
+    @Override
+    public List<Sorciere> findAll();
 }
