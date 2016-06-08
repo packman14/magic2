@@ -7,7 +7,7 @@
 function myFunction()
 {
     setInterval(function () {
-        $("#contenu").load("attente");
+//        $("#contenu").load("attente");
         $("#action_joueur").load("actualiserjeu");
         $("#actionJoueur").load("actualisertour");
     }, 500);
