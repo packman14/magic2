@@ -50,6 +50,15 @@ public class AjaxController {
         return "ingredients_dispo";
     }
     
+    @RequestMapping(value = "/actualisertour", method = RequestMethod.GET)
+    public String ajaxActualiserTour(Model model, HttpSession session) {
+        
+        Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
+        model.addAttribute("partieEnCours", ps.getPartieEnCours(sorciere.getId()));
+        
+        return "tour_actuel";
+    }
+    
     @RequestMapping(value = "/actualiserjeu", method = RequestMethod.GET)
     public String ajaxActualiserJeu(Model model, HttpSession session) {
         
