@@ -30,20 +30,20 @@ public class PartieService
     @Autowired
     private SorciereService ss;
     
-//    public void joueurSuivant(Long partieID)
-//    {
-//        Partie partieActuelle = pcs.findOne(partieID);
-//        int joueurActuel = partieActuelle.getNumeroSorciere();
-//        if(joueurActuel < partieActuelle.getNbJoueurs())
-//        {
-//            partieActuelle.setNumeroSorciere(++joueurActuel);
-//        }
-//        else
-//        {
-//            partieActuelle.setNumeroSorciere(1);
-//        }
-//        pcs.save(partieActuelle);
-//    }
+    public void joueurSuivant(Long partieID)
+    {
+        Partie partieActuelle = pcs.findOne(partieID);
+        int joueurActuel = partieActuelle.getNumeroSorciere();
+        if(joueurActuel < partieActuelle.getSorcieresEnJeu().size())
+        {
+            partieActuelle.setNumeroSorciere(++joueurActuel);
+        }
+        else
+        {
+            partieActuelle.setNumeroSorciere(1);
+        }
+        pcs.save(partieActuelle);
+    }
     
     public void initPartie(Long sorciereID)
     {

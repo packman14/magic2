@@ -74,7 +74,11 @@ public class AjaxController {
         Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
         Partie partieEnCours = sorciere.getPartieEnCours();
         
+        
+        
         sos.lancerSort(idCarte1, idCarte2, sorciere.getId(), null);
+        
+        ps.joueurSuivant(partieEnCours.getId());
         
         
         session.setAttribute("sorciereCo", ss.findOne(sorciere.getId()));
