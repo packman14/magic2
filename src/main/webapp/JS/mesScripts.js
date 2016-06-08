@@ -10,6 +10,7 @@ function myFunction()
 //        $("#contenu").load("attente");
         $("#action_joueur").load("actualiserjeu");
         $("#actionJoueur").load("actualisertour");
+        $("#nbCarte").load("actualisernbcarte");
     }, 500);
 }
 

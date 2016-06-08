@@ -21,7 +21,7 @@
     <div class="menu">
         <c:import url="_MENU.jsp"/>
     </div>
-    <div class="contenu">
+    <div>
         <div id="ingredients_dispo">
             <c:forEach items="${sorciereCo.ingredients}" var="ingredient">
                 <img id="${ingredient.id}" onclick="carteCliquee(${ingredient.id})" src="${ingredient.skin}" />
@@ -30,7 +30,7 @@
         <div id="actionJoueur">
             <c:choose>
                 <c:when test="${partieEnCours.numProchainJoueur == sorciereCo.numero}">
-                    C'est a moi de jouer
+                    C'est à moi de jouer
                     <input type="button" id="bouton" value="Piocher une carte" onclick="piocher()"/>
                     <input type="button" id="bouton" value="Lancer Sort" onclick="sort()"/>
                 </c:when>
@@ -39,19 +39,22 @@
                 </c:otherwise>
             </c:choose>
         </div>
-        <c:forEach items="${partieEnCours.sorcieresEnJeu}" var="adversaire">
-            <c:if test="adversaires!=${sorciereCo}">
+
+        <c:forEach items="${partieEnCours.sorcieresEnJeu}" var="sorciere">
+            <c:if test="${sorciere.id != sorciereCo.id}">
                 <div id="visuAdv">
-                    ${adversaire.pseudo}
-                    <img src="${adversaire.skin}"/>
-                    ${adversaire.dateCo}
-                    Nb cartes: ${adversaire.ingredients}
+                    <img id="${sorciere.id}" src="${sorciere.skin}"/><br>
+                    ${sorciere.pseudo}<br>
+                    ${sorciere.dateCo}
+                    <div id="nbCarte">
+                    </div>
                 </div>
             </c:if>
         </c:forEach>
     </div>
-    <div class="pied">
-        <c:import url="_PIED.jsp"/>
-    </div>
+</div>
+<div class="pied">
+    <c:import url="_PIED.jsp"/>
+</div>
 </body>
 </html>
