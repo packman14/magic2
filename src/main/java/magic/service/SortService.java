@@ -33,8 +33,10 @@ public class SortService {
     @Autowired
     private IngredientCRUDService ics;
 
-    public void lancerSort(Ingredient ingredient1, Ingredient ingredient2, Long sorciereIDSource, Long sorciereIDCible) throws RuntimeException {
+    public void lancerSort(Long ingredientId1, Long ingredientId2, Long sorciereIDSource, Long sorciereIDCible) throws RuntimeException {
         
+        Ingredient ingredient1 = ics.findOne(ingredientId2);
+        Ingredient ingredient2 = ics.findOne(ingredientId1);
         //récupérer tous les sorts
         List<Sort> sorts = scs.findAll();
         
