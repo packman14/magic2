@@ -39,6 +39,16 @@
                 </c:otherwise>
             </c:choose>
         </div>
+        <c:forEach items="${partieEnCours.sorcieresEnJeu}" var="adversaire">
+            <c:if test="adversaires!=${sorciereCo}">
+                <div id="visuAdv">
+                    ${adversaire.pseudo}
+                    <img src="${adversaire.skin}"/>
+                    ${adversaire.dateCo}
+                    Nb cartes: ${adversaire.ingredients}
+                </div>
+            </c:if>
+        </c:forEach>
     </div>
     <div class="pied">
         <c:import url="_PIED.jsp"/>
