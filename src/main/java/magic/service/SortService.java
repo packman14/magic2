@@ -131,10 +131,13 @@ public class SortService {
             ic.setSorciere(sorciereSource);
 //            //ajout de l'ingrédient dans la liste de la sorciere source
             sorciereSource.addIngredient(ic);
-            //sauvegarde de l'ingrédient
-            ics.save(ic);
+            
             //suppresion de l'ingrédient dans la liste de la sorciere cible
             ingredientsCible.remove(ic);
+            //sauvegardes
+            ics.save(ic);
+            socr.save(sorciereCible);
+            socr.save(sorciereSource);
         }
     
 
