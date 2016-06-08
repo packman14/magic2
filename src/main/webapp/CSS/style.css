@@ -20,3 +20,10 @@ body
     border-width: 3px;
     border-style: outset;
 }
+
+.bordureSorc
+{
+    border-color: green;
+    border-width: 3px;
+    border-style: outset;
+}

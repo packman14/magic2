@@ -32,8 +32,9 @@ function piocher()
 function sort()
 {
     var cartes = $(".bordureVerte");
+    var sorciere = $(".bordureSorc");
 
-    $.post("sort/" + cartes.get(0).id + "/" + cartes.get(1).id, $("#sort"));
+    $.post("sort/" + cartes.get(0).id + "/" + cartes.get(1).id + "/" + sorciere.get(0).id, $("#sort"));
      $("#ingredients_dispo").load("actualiseringredients");
 }
 
@@ -46,8 +47,17 @@ function carteCliquee(carteCliqueeID)
     {
         $("#" + carteCliqueeID).addClass("bordureVerte");
     }
+}
 
-
+function sorcCliquee(sorcCliqueeID)
+{
+    if ($("#" + sorcCliqueeID).hasClass("bordureSorc"))
+    {
+        $("#" + sorcCliqueeID).removeClass("bordureSorc");
+    } else
+    {
+        $("#" + sorcCliqueeID).addClass("bordureSorc");
+    }
 }
 
     
