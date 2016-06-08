@@ -43,7 +43,7 @@
         <c:forEach items="${partieEnCours.sorcieresEnJeu}" var="sorciere">
             <c:if test="${sorciere.id != sorciereCo.id}">
                 <div id="visuAdv">
-                    <img id="${sorciere.id}" src="${sorciere.skin}"/><br>
+                    <img id="${sorciere.id}" onclick="carteCliquee(${sorciere.id})" src="${sorciere.skin}"/><br>
                     ${sorciere.pseudo}<br>
                     ${sorciere.dateCo}
                     <div id="nbCarte">
