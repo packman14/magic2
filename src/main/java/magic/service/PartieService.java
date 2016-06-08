@@ -34,7 +34,7 @@ public class PartieService
     {
         Partie partieActuelle = pcs.findOne(partieID);
         int joueurActuel = partieActuelle.getNumProchainJoueur();
-        if(joueurActuel < partieActuelle.getSorcieresEnJeu().size())
+        if(joueurActuel < partieActuelle.getSorcieresEnJeu().size() && joueurActuel>0)
         {
             partieActuelle.setNumProchainJoueur(++joueurActuel);
         }
@@ -117,7 +117,7 @@ public class PartieService
         
         partie.setPartieEnCours(Boolean.TRUE);
         initialiserNumeros(partie.getId());
-        partie.setNumProchainJoueur(0);
+        partie.setNumProchainJoueur(1);
         pcs.save(partie);
         
         

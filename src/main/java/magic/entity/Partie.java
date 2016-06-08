@@ -36,6 +36,13 @@ public class Partie implements Serializable {
     @OneToMany (mappedBy = "partieEnCours")
     @JoinColumn(name = "partie_id")
     private List<Sorciere> sorcieresEnJeu= new ArrayList<>();
+
+    public Partie() {
+        this.partieEnCours = false;
+        this.numProchainJoueur = 1;
+    }
+    
+    
     
     public Long getId() {
         return id;
