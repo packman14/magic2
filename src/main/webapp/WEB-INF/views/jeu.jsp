@@ -24,7 +24,7 @@
     <div class="contenu">
         <div id="ingredients_dispo">
             <c:forEach items="${sorciereCo.ingredients}" var="ingredient">
-                <img src="${ingredient.skin}" />
+                <img id="${ingredient.id}" onclick="carteCliquee(${ingredient.id})" src="${ingredient.skin}" />
             </c:forEach>
         </div>
         <div id="actionJoueur">
@@ -32,6 +32,7 @@
                 <c:when test="${partieEnCours.numProchainJoueur == sorciereCo.numero}">
                     C'est a moi de jouer
                     <input type="button" id="bouton" value="Piocher une carte" onclick="piocher()"/>
+                    <input type="button" id="bouton" value="Lancer Sort" onclick="sort()"/>
                 </c:when>
                 <c:otherwise>
                     c'est pas à moi de jouer

@@ -13,9 +13,11 @@ import magic.entity.Sorciere;
 import magic.service.IngredientService;
 import magic.service.PartieService;
 import magic.service.SorciereService;
+import magic.service.SortService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,6 +36,9 @@ public class AjaxController {
     
     @Autowired
     private SorciereService ss;
+    
+    @Autowired
+    private SortService sos;
     
     @RequestMapping(value = "/actualiseringredients", method = RequestMethod.GET)
     public String ajaxActualiserIngredients(Model model, HttpSession session) {
@@ -58,6 +63,19 @@ public class AjaxController {
         Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
         Partie partieEnCours = sorciere.getPartieEnCours();//TODO incrémenter le tour actuel
         is.ajouterIngredientAleatoire(sorciere.getId());
+        
+        session.setAttribute("sorciereCo", ss.findOne(sorciere.getId()));
+        
+        return "page_vide";
+    }
+    
+    @RequestMapping(value = "/sort/{idCarte1}/{idCarte2}", method = RequestMethod.POST)
+    public String ajaxLancerSort(@PathVariable("idCarte1") Long idCarte1, @PathVariable("idCarte2") Long idCarte2, Model model, HttpSession session) {
+        Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
+        Partie partieEnCours = sorciere.getPartieEnCours();
+        
+        sos.lancerSort(idCarte1, idCarte2);
+        
         
         session.setAttribute("sorciereCo", ss.findOne(sorciere.getId()));
         

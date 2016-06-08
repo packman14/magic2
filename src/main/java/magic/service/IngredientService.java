@@ -29,6 +29,11 @@ public class IngredientService {
     @Autowired
     private ConfigService cs;
 
+    public Ingredient findOne(Long ingredientID)
+    {
+        return ics.findOne(ingredientID);
+    }
+    
     public void ajouterIngredient(Long sorciereID, Ingredient.TypeIngredient typeIngredient) {
         Ingredient monIngredient = new Ingredient();
         monIngredient.setTypeIngredient(typeIngredient);
