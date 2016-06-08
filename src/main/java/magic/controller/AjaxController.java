@@ -89,14 +89,14 @@ public class AjaxController {
         return "page_vide";
     }
     
-    @RequestMapping(value = "/sort/{idCarte1}/{idCarte2}", method = RequestMethod.POST)
-    public String ajaxLancerSort(@PathVariable("idCarte1") Long idCarte1, @PathVariable("idCarte2") Long idCarte2, Model model, HttpSession session) {
+    @RequestMapping(value = "/sort/{idCarte1}/{idCarte2}/{idSorciere}", method = RequestMethod.POST)
+    public String ajaxLancerSort(@PathVariable("idCarte1") Long idCarte1, @PathVariable("idCarte2") Long idCarte2, @PathVariable("idSorciere") Long idCible, Model model, HttpSession session) {
         Sorciere sorciere = (Sorciere) session.getAttribute("sorciereCo");
         Partie partieEnCours = sorciere.getPartieEnCours();
         
         
         
-        sos.lancerSort(idCarte1, idCarte2, sorciere.getId(), null);
+        sos.lancerSort(idCarte1, idCarte2, sorciere.getId(), idCible);
         
         ps.joueurSuivant(partieEnCours.getId());
         
